@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { type NextRequest, NextResponse } from 'next/server'
 import * as pdfjs from 'pdfjs-dist/build/pdf.min.mjs'
-import { TextContent, TextItem } from 'pdfjs-dist/types/src/display/api'
+import type { TextContent, TextItem } from 'pdfjs-dist/types/src/display/api'
 
 
 function mergeTextContent(textContent: TextContent) {
