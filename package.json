@@ -6,6 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "canvas": "^2.11.2",
     "next": "canary",
     "pdfjs-dist": "^4.0.189",
     "react": "^18.2.0",
