@@ -1,4 +1,4 @@
-import { NextRequest } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 import * as pdfjs from 'pdfjs-dist/build/pdf.min.mjs'
 import { TextContent, TextItem } from 'pdfjs-dist/types/src/display/api'
 
@@ -16,11 +16,11 @@ export async function GET(req: NextRequest) {
     ?? 'https://www.africau.edu/images/default/sample.pdf'
   try {
     const pdf = await pdfjs.getDocument(url).promise
-    if (!pdf.numPages) return Response.json({ status: 'ok', text: null })
+    if (!pdf.numPages) return NextResponse.json({ status: 'ok', text: null })
     const page = await pdf.getPage(1)
     const textContent = await page.getTextContent()
-    return Response.json({ status: 'ok', text: mergeTextContent(textContent )})
+    return NextResponse.json({ status: 'ok', text: mergeTextContent(textContent )})
   } catch (err) {
-    return Response.json({ status: 'error', error: String(err) })
+    return NextResponse.json({ status: 'error', error: String(err) })
   }
 }
