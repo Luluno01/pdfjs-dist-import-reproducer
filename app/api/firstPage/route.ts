@@ -11,7 +11,7 @@ function mergeTextContent(textContent: TextContent) {
 }
 
 export async function GET(req: NextRequest) {
-  await import('pdfjs-dist/build/pdf.worker.min.mjs')
+  await import('pdfjs-dist/build/pdf.worker.mjs')
   const url = req.nextUrl.searchParams.get('url')
     ?? 'https://www.africau.edu/images/default/sample.pdf'
   try {
